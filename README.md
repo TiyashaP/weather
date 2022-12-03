@@ -4,13 +4,7 @@ The web app should provide the current weather and projected forecast for locati
 address as well as geo location coordinates (longitude/latitude).
 Please implement a working RESTful API with the technology of your choice, a test to demonstrate
 the API (manual or unit test) and an API documentation showing the API routes, requests and
-responses. The documentation can be a simple text file or something like a Swagger doc.
-General conditions
-You have complete freedom in how you implement this. The choice of architecture patterns,
-frameworks, libraries, API design and used public weather services is yours.
-If you miss important information in the requirements above please feel free to make assumptions
-that make sense to you and explain them in the interview.
-During the technical interview you will be asked to explain the technologies,
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 1.Creating jar with command: execute the following command which result in jar in the target directory
    mvn clean install -U
