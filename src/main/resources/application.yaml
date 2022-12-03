@@ -1,0 +1,53 @@
+server:
+  port: 8081
+
+springdoc:
+  api-docs:
+    path: /api-docs
+weather:
+  url: https://visual-crossing-weather.p.rapidapi.com/forecast
+  xRapidApiKey: 5c2e9d6791msh2b00fb404e26f43p10be84jsn831fd5766fce
+  xRapidApiHost: visual-crossing-weather.p.rapidapi.com
+  contentType: json
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+resilience4j:
+  circuitbreaker:
+    instances:
+      weatherService:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+  retry:
+    instances:
+      weatherService:
+        registerHealthIndicator: true
+        maxRetryAttempts: 5
+        waitDuration: 10s
+  ratelimiter:
+    instances:
+      weatherService:
+        registerHealthIndicator: true
+        limitForPeriod: 10
+        limitRefreshPeriod: 10s
+        timeoutDuration: 3s
+logging:
+  config: classpath:log4j2.xml
+security:
+  headers:
+    frame: false
