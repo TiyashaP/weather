@@ -15,8 +15,7 @@ the API (manual or unit test) and an API documentation showing the API routes, r
 3.The api docs for the application is available at :[api-docs](http://localhost:8081/swagger-ui/index.html)
 get request with latitude and longitude: curl --request GET \
 --url 'http://localhost:8081/v1/weather/?aggregateHours=24&location=38.9697%2C-77.385&unitGroup=us&shortColumnNames=true' \
---header 'cache-control: no-cache' \
---header 'postman-token: 637c2cea-ec85-333e-60dd-237b4d22ecbc'
+--header 'cache-control: no-cache'
 
 get request with location name: curl --request GET \
 --url 'http://localhost:8081/v1/weather/?aggregateHours=24&location=London&unitGroup=us&shortColumnNames=true' \
