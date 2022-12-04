@@ -1,4 +1,4 @@
-Task
+
 Create the backend API for a weather web app.
 The web app should provide the current weather and projected forecast for location provided by an
 address as well as geo location coordinates (longitude/latitude).
